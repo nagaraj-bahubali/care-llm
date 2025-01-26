@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "e70a176c-f69d-431a-b94d-2c13369c2c50",
+		"name": "care-llm-apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "627206"
+	},
+	"item": [
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "summarize",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"medical_text\":\"Chronic kidney disease (CKD), also known as chronic renal disease, is progressive loss in kidney function over a period of months or years. The symptoms of worsening kidney function are not specific, and might include feeling generally unwell and experiencing a reduced appetite. Often, chronic kidney disease is diagnosed as a result of screening of people known to be at risk of kidney problems, such as those with high blood pressure or diabetes and those with a blood relative with CKD. This disease may also be identified when it leads to one of its recognized complications, such as cardiovascular disease, anemia, pericarditis or renal osteodystrophy (the latter included in the novel term CKD-MBD). CKD is a long-term form of kidney disease; thus, it is differentiated from acute kidney disease (acute kidney injury) in that the reduction in kidney function must be present for over 3 months. CKD is an internationally recognized public health problem affecting 5–10% of the world population.\",\r\n   \"user_profile\":{\r\n      \"gender\":\"male\",\r\n      \"birthday\":\"1994-10-24\",\r\n      \"martialStatus\":\"single\",\r\n      \"religion\":\"Protestant\",\r\n      \"allergies\":[\r\n         \"Pollen\"\r\n      ],\r\n      \"educationalBackground\":\"school\",\r\n      \"professionalBackground\":\"technical\",\r\n      \"languagePreferences\":[\r\n         \"avoidAbstractTerms\"\r\n      ]\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://care-llm.fit.fraunhofer.de/v1/summarize",
+							"protocol": "http",
+							"host": [
+								"care-llm",
+								"fit",
+								"fraunhofer",
+								"de"
+							],
+							"path": [
+								"v1",
+								"summarize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "converse",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"chat_id\":\"v1-test-1\",\r\n   \"user_question\":\"Hi I am Christian. Based on my medical condition, justify the medication prescribed\",\r\n   \"medical_text\":\"Presenting Complaints:\\n\\tRecurrent hematuria\\n\\tProteinuria\\n\\tProgressive renal insufficiency\\n\\tSensorineural hearing loss reported by the patient\\n\\tOcular abnormalities (anterior lenticonus) noted during the recent ophthalmology consultation\\n\\nMedical History:\\n\\tFamily history of kidney disease and hearing loss\\n\\tHistory of hypertension managed with ACE inhibitors\\n\\nMedications:\\n\\tRamipril 5 mg once daily\\n\\tFurosemide 20 mg as needed for fluid retention\\n\",\r\n   \"user_profile\":{\r\n      \"gender\":\"male\",\r\n      \"birthday\":\"2000-10-24\",\r\n      \"martialStatus\":\"single\",\r\n      \"religion\":\"Protestant\",\r\n      \"allergies\":[\r\n         \"Pollen\"\r\n      ],\r\n      \"educationalBackground\":\"school\",\r\n      \"professionalBackground\":\"technical\",\r\n      \"languagePreferences\":[\r\n         \"avoidAbstractTerms\"\r\n      ]\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://care-llm.fit.fraunhofer.de/v1/converse",
+							"protocol": "http",
+							"host": [
+								"care-llm",
+								"fit",
+								"fraunhofer",
+								"de"
+							],
+							"path": [
+								"v1",
+								"converse"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "v2",
+			"item": [
+				{
+					"name": "summarize-diagnosis",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"task\":\"diagnosisReport\",\r\n   \"medical_text\":\"Diagnosis:\\nPrimary Diagnosis: Chronic Kidney Disease NOS\\nDocument Type: Discharge Summary\\nDischarge Summary:\\n•\\tAdmission Date: 2024-01-04\\n•\\tDischarge Date: 2024-01-19\\n•\\tDate of Birth: 1932-02-29\\n•\\tSex: Female\\n•\\tService: Medicine\\nAllergies:\\n•\\tNevirapine\\n•\\tAbacavir\\n•\\tAmpicillin\\n•\\tTylenol\\n•\\tZidovudine\\nAttending Physician:  Dr. Sarah Mitchell\\nChief Complaint: Increased lower extremity swelling and concerns about self-care at home.\\nMajor Surgical or Invasive Procedures:\\n•\\tLeft femoral central line\\n•\\tRight internal jugular central line\\n•\\tContinuous venovenous hemofiltration (CVVH)\\nHistory of Present Illness:\\nThe patient is has HIV/AIDS (CD4 count of 5 as of 2023-08-23, unknown viral load) and cardiomyopathy (ejection fraction [EF] 20%) who was recently hospitalized for bibasilar pneumonia. She completed a two-week course of antibiotics (Levofloxacin and Flagyl). She presented with complaints of persistent leg swelling and weakness for two weeks. She denied shortness of breath, eating salty foods, and fever but reported consuming canned chicken noodle soup. She had received partial prescriptions after her previous discharge but did not know the names or doses of her HIV medications, identifying only Bactrim as her HIV medicine.\\nIn the Emergency Department (ED), the patient received IV Lasix, and a femoral line was placed due to difficult venous access.\\n\\nPast Medical History:\\n•\\tHIV/AIDS: History of PCP x 2, MAC, cervical dysplasia, HSV anal ulcers. Last CD4 count of 5 on 2023-08-19.\\n•\\tCardiomyopathy: EF 20% as of 2023-12-28.\\n•\\tRenal Insufficiency: New renal insufficiency since 2023-11-18 with baseline creatinine in the mid-2s.\\n•\\tDepression\\n•\\tAsthma\\n\\nSocial History:\\n•\\tDivorced, lives with her 13-year-old daughter.\\n•\\tAmbulates with a walker.\\n•\\tDenies tobacco, alcohol, or drug use.\\nFamily History:\\n•\\tCoronary Artery Disease: Mother died at age 57 from myocardial infarction.\\n\\nPhysical Examination on Admission:\\n•\\tVitals: Temp 97.7°F, BP 112/68, RR 18, O2 saturation not initially checked.\\n•\\tGeneral: Alert, quiet, pleasant, sitting in bed.\\n•\\tCardiovascular: Tachycardia, S1S2 with S3, no murmurs.\\n•\\tPulmonary: Clear to auscultation, decreased breath sounds at lung bases.\\n•\\tAbdomen: Soft, non-tender, non-distended.\\n•\\tExtremities: Pitting edema, femoral line in place with sanguineous drainage on the dressing.\\n\\nPertinent Labs and Imaging:\\n•\\tBNP: 64,499\\n•\\tDigoxin level: 0.8\\n•\\tCreatinine: 2.1 (slightly improved from baseline)\\n•\\tHematocrit: 27.5%\\n•\\tAlbumin: 2.2\\n•\\tCXR: Persistent bibasilar pneumonia with bilateral effusions\\n•\\tEchocardiogram: EF 20%, small-moderate pericardial effusion, global hypokinesis (2023-12-28)\\nHospital Course:\\nMs. Emily Carter was admitted for further management of her multiple conditions, including HIV/AIDS, cardiomyopathy, and renal insufficiency. She initially presented with concerns about increased lower extremity edema, but her physical examination revealed no significant change. She was started on IV antibiotics and transferred to the ICU after developing severe lactic acidosis believed to be secondary to her HIV medications (Zidovudine). She required continuous venovenous hemofiltration (CVVH) for acidosis and D10 for hypoglycemia.\\nDespite treatment, the patient experienced multi-system organ failure, including liver failure, increased oliguria, pancreatitis, and hemolysis. After discussions with her family, the decision was made to discontinue dialysis and transition to hospice care.\\nFamily Meeting and Transition to Hospice:\\nThe patient's family, including her 13-year-old daughter, was informed of her prognosis. The patient expressed a desire to go to hospice, which was arranged. She was discharged on a course of antibiotics and continued medications for symptom management.\\nDischarge Medications:\\n1.\\tTrimethoprim-Sulfamethoxazole 80-400 mg Tablet: Take 1 tablet daily.\\n2.\\tSevelamer 400 mg Tablet: Take 2 tablets three times daily.\\n3.\\tDigoxin 125 mcg Tablet: Take 1 tablet every other day.\\n4.\\tIpratropium Bromide 0.02% Solution: Nebulize every 6 hours as needed for shortness of breath.\\n5.\\tPantoprazole 40 mg Tablet: Take 1 tablet daily.\\n6.\\tLasix 40 mg Tablet: Take 1 tablet daily as needed for shortness of breath or painful edema.\\n7.\\tCefpodoxime 200 mg Tablet: Take 1 tablet every 12 hours for 4 days.\\n8.\\tAzithromycin 250 mg Tablet: Take 1 tablet daily for 4 days.\\nDischarge Disposition: The patient was transferred to Rosewood Hospice Care.\\nDischarge Diagnosis:\\n1.\\tHIV/AIDS\\n2.\\tCardiomyopathy (EF 20%)\\n3.\\tNew renal insufficiency (baseline creatinine mid-2s)\\n4.\\tGastroesophageal reflux disease (GERD)\\n5.\\tAsthma\\n6.\\tDepression\\nDischarge Condition: Stable\\nDischarge Instructions:\\nThe patient is being transferred to hospice care, with goals of comfort and symptom management. No further labs, IVs, or fingersticks will be performed.\\nFollow-up: None required.\\nPhysician: Dr. Sarah Mitchell\\nFacility: Rosewood Hospice Care\\nDate of Completion: 2024-01-18\",\r\n   \"user_profile\":{\r\n      \"gender\":\"female\",\r\n      \"birthday\":\"1932-02-29\",\r\n      \"martialStatus\":\"single\",\r\n      \"religion\":\"Protestant\",\r\n      \"allergies\":[\r\n         \"Nevirapine\",\r\n         \"Abacavir\",\r\n         \"Ampicillin\",\r\n         \"Tylenol\",\r\n         \"Zidovudine\"\r\n      ],\r\n      \"educationalBackground\":\"school\",\r\n      \"professionalBackground\":\"technical\",\r\n      \"languagePreferences\":[\r\n         \"avoidAbstractTerms\"\r\n      ]\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://care-llm.fit.fraunhofer.de/v2/summarize",
+							"protocol": "http",
+							"host": [
+								"care-llm",
+								"fit",
+								"fraunhofer",
+								"de"
+							],
+							"path": [
+								"v2",
+								"summarize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "summarize-disease",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"task\":\"diseaseInformation\",\r\n   \"medical_text\":\"Chronic kidney disease (CKD), also known as chronic renal disease, is progressive loss in kidney function over a period of months or years. The symptoms of worsening kidney function are not specific, and might include feeling generally unwell and experiencing a reduced appetite. Often, chronic kidney disease is diagnosed as a result of screening of people known to be at risk of kidney problems, such as those with high blood pressure or diabetes and those with a blood relative with CKD. This disease may also be identified when it leads to one of its recognized complications, such as cardiovascular disease, anemia, pericarditis or renal osteodystrophy (the latter included in the novel term CKD-MBD). CKD is a long-term form of kidney disease; thus, it is differentiated from acute kidney disease (acute kidney injury) in that the reduction in kidney function must be present for over 3 months. CKD is an internationally recognized public health problem affecting 5–10% of the world population.\",\r\n   \"user_profile\":{\r\n      \"gender\":\"male\",\r\n      \"birthday\":\"1994-10-24\",\r\n      \"martialStatus\":\"single\",\r\n      \"religion\":\"Protestant\",\r\n      \"allergies\":[\r\n         \"Pollen\"\r\n      ],\r\n      \"educationalBackground\":\"school\",\r\n      \"professionalBackground\":\"technical\",\r\n      \"languagePreferences\":[\r\n         \"avoidAbstractTerms\"\r\n      ]\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://care-llm.fit.fraunhofer.de/v2/summarize",
+							"protocol": "http",
+							"host": [
+								"care-llm",
+								"fit",
+								"fraunhofer",
+								"de"
+							],
+							"path": [
+								"v2",
+								"summarize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "initiate-chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"chat_id\":\"v2-test-1\",\r\n   \"user_question\":\"Based on my medical condition, justify the medication prescribed\",\r\n   \"medical_text\":\"Diagnosis:\\nPrimary Diagnosis: Chronic Kidney Disease NOS\\nDocument Type: Discharge Summary\\nDischarge Summary:\\n•\\tAdmission Date: 2024-01-04\\n•\\tDischarge Date: 2024-01-19\\n•\\tDate of Birth: 1932-02-29\\n•\\tSex: Female\\n•\\tService: Medicine\\nAllergies:\\n•\\tNevirapine\\n•\\tAbacavir\\n•\\tAmpicillin\\n•\\tTylenol\\n•\\tZidovudine\\nAttending Physician:  Dr. Sarah Mitchell\\nChief Complaint: Increased lower extremity swelling and concerns about self-care at home.\\nMajor Surgical or Invasive Procedures:\\n•\\tLeft femoral central line\\n•\\tRight internal jugular central line\\n•\\tContinuous venovenous hemofiltration (CVVH)\\nHistory of Present Illness:\\nThe patient is has HIV/AIDS (CD4 count of 5 as of 2023-08-23, unknown viral load) and cardiomyopathy (ejection fraction [EF] 20%) who was recently hospitalized for bibasilar pneumonia. She completed a two-week course of antibiotics (Levofloxacin and Flagyl). She presented with complaints of persistent leg swelling and weakness for two weeks. She denied shortness of breath, eating salty foods, and fever but reported consuming canned chicken noodle soup. She had received partial prescriptions after her previous discharge but did not know the names or doses of her HIV medications, identifying only Bactrim as her HIV medicine.\\nIn the Emergency Department (ED), the patient received IV Lasix, and a femoral line was placed due to difficult venous access.\\n\\nPast Medical History:\\n•\\tHIV/AIDS: History of PCP x 2, MAC, cervical dysplasia, HSV anal ulcers. Last CD4 count of 5 on 2023-08-19.\\n•\\tCardiomyopathy: EF 20% as of 2023-12-28.\\n•\\tRenal Insufficiency: New renal insufficiency since 2023-11-18 with baseline creatinine in the mid-2s.\\n•\\tDepression\\n•\\tAsthma\\n\\nSocial History:\\n•\\tDivorced, lives with her 13-year-old daughter.\\n•\\tAmbulates with a walker.\\n•\\tDenies tobacco, alcohol, or drug use.\\nFamily History:\\n•\\tCoronary Artery Disease: Mother died at age 57 from myocardial infarction.\\n\\nPhysical Examination on Admission:\\n•\\tVitals: Temp 97.7°F, BP 112/68, RR 18, O2 saturation not initially checked.\\n•\\tGeneral: Alert, quiet, pleasant, sitting in bed.\\n•\\tCardiovascular: Tachycardia, S1S2 with S3, no murmurs.\\n•\\tPulmonary: Clear to auscultation, decreased breath sounds at lung bases.\\n•\\tAbdomen: Soft, non-tender, non-distended.\\n•\\tExtremities: Pitting edema, femoral line in place with sanguineous drainage on the dressing.\\n\\nPertinent Labs and Imaging:\\n•\\tBNP: 64,499\\n•\\tDigoxin level: 0.8\\n•\\tCreatinine: 2.1 (slightly improved from baseline)\\n•\\tHematocrit: 27.5%\\n•\\tAlbumin: 2.2\\n•\\tCXR: Persistent bibasilar pneumonia with bilateral effusions\\n•\\tEchocardiogram: EF 20%, small-moderate pericardial effusion, global hypokinesis (2023-12-28)\\nHospital Course:\\nMs. Emily Carter was admitted for further management of her multiple conditions, including HIV/AIDS, cardiomyopathy, and renal insufficiency. She initially presented with concerns about increased lower extremity edema, but her physical examination revealed no significant change. She was started on IV antibiotics and transferred to the ICU after developing severe lactic acidosis believed to be secondary to her HIV medications (Zidovudine). She required continuous venovenous hemofiltration (CVVH) for acidosis and D10 for hypoglycemia.\\nDespite treatment, the patient experienced multi-system organ failure, including liver failure, increased oliguria, pancreatitis, and hemolysis. After discussions with her family, the decision was made to discontinue dialysis and transition to hospice care.\\nFamily Meeting and Transition to Hospice:\\nThe patient's family, including her 13-year-old daughter, was informed of her prognosis. The patient expressed a desire to go to hospice, which was arranged. She was discharged on a course of antibiotics and continued medications for symptom management.\\nDischarge Medications:\\n1.\\tTrimethoprim-Sulfamethoxazole 80-400 mg Tablet: Take 1 tablet daily.\\n2.\\tSevelamer 400 mg Tablet: Take 2 tablets three times daily.\\n3.\\tDigoxin 125 mcg Tablet: Take 1 tablet every other day.\\n4.\\tIpratropium Bromide 0.02% Solution: Nebulize every 6 hours as needed for shortness of breath.\\n5.\\tPantoprazole 40 mg Tablet: Take 1 tablet daily.\\n6.\\tLasix 40 mg Tablet: Take 1 tablet daily as needed for shortness of breath or painful edema.\\n7.\\tCefpodoxime 200 mg Tablet: Take 1 tablet every 12 hours for 4 days.\\n8.\\tAzithromycin 250 mg Tablet: Take 1 tablet daily for 4 days.\\nDischarge Disposition: The patient was transferred to Rosewood Hospice Care.\\nDischarge Diagnosis:\\n1.\\tHIV/AIDS\\n2.\\tCardiomyopathy (EF 20%)\\n3.\\tNew renal insufficiency (baseline creatinine mid-2s)\\n4.\\tGastroesophageal reflux disease (GERD)\\n5.\\tAsthma\\n6.\\tDepression\\nDischarge Condition: Stable\\nDischarge Instructions:\\nThe patient is being transferred to hospice care, with goals of comfort and symptom management. No further labs, IVs, or fingersticks will be performed.\\nFollow-up: None required.\\nPhysician: Dr. Sarah Mitchell\\nFacility: Rosewood Hospice Care\\nDate of Completion: 2024-01-18\",\r\n   \"user_profile\":{\r\n      \"gender\":\"female\",\r\n      \"birthday\":\"1932-02-29\",\r\n      \"martialStatus\":\"single\",\r\n      \"religion\":\"Protestant\",\r\n      \"allergies\":[\r\n         \"Nevirapine\",\r\n         \"Abacavir\",\r\n         \"Ampicillin\",\r\n         \"Tylenol\",\r\n         \"Zidovudine\"\r\n      ],\r\n      \"educationalBackground\":\"school\",\r\n      \"professionalBackground\":\"technical\",\r\n      \"languagePreferences\":[\r\n         \"avoidAbstractTerms\"\r\n      ]\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://care-llm.fit.fraunhofer.de/v2/initiate-chat",
+							"protocol": "http",
+							"host": [
+								"care-llm",
+								"fit",
+								"fraunhofer",
+								"de"
+							],
+							"path": [
+								"v2",
+								"initiate-chat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resume-chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"chat_id\":\"v2-test-1\",\r\n   \"user_question\":\"Do you remember my name?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://care-llm.fit.fraunhofer.de/v2/resume-chat",
+							"protocol": "http",
+							"host": [
+								"care-llm",
+								"fit",
+								"fraunhofer",
+								"de"
+							],
+							"path": [
+								"v2",
+								"resume-chat"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "validation",
+			"item": [
+				{
+					"name": "validate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"original_text\":\"\\nDiagnosis:\\nPrimary Diagnosis: Chronic Kidney Disease NOS\\nDocument Type: Discharge Summary\\nDischarge Summary:\\n•    Admission Date: 2024-01-04\\n•    Discharge Date: 2024-01-19\\n•    Date of Birth: 1932-02-29\\n•    Sex: Female\\n•    Service: Medicine\\nAllergies:\\n•    Nevirapine\\n•    Abacavir\\n•    Ampicillin\\n•    Tylenol\\n•    Zidovudine\\nAttending Physician:  Dr. Sarah Mitchell\\nChief Complaint: Increased lower extremity swelling and concerns about self-care at home.\\nMajor Surgical or Invasive Procedures:\\n•    Left femoral central line\\n•    Right internal jugular central line\\n•    Continuous venovenous hemofiltration (CVVH)\\nHistory of Present Illness:\\nThe patient is has HIV/AIDS (CD4 count of 5 as of 2023-08-23, unknown viral load) and cardiomyopathy (ejection fraction [EF] 20%) who was recently hospitalized for bibasilar pneumonia. She completed a two-week course of antibiotics (Levofloxacin and Flagyl). She presented with complaints of persistent leg swelling and weakness for two weeks. She denied shortness of breath, eating salty foods, and fever but reported consuming canned chicken noodle soup. She had received partial prescriptions after her previous discharge but did not know the names or doses of her HIV medications, identifying only Bactrim as her HIV medicine.\\nIn the Emergency Department (ED), the patient received IV Lasix, and a femoral line was placed due to difficult venous access.\\n\\nPast Medical History:\\n•    HIV/AIDS: History of PCP x 2, MAC, cervical dysplasia, HSV anal ulcers. Last CD4 count of 5 on 2023-08-19.\\n•    Cardiomyopathy: EF 20% as of 2023-12-28.\\n•    Renal Insufficiency: New renal insufficiency since 2023-11-18 with baseline creatinine in the mid-2s.\\n•    Depression\\n•    Asthma\\n\\nSocial History:\\n•    Divorced, lives with her 13-year-old daughter.\\n•    Ambulates with a walker.\\n•    Denies tobacco, alcohol, or drug use.\\nFamily History:\\n•    Coronary Artery Disease: Mother died at age 57 from myocardial infarction.\\n\\nPhysical Examination on Admission:\\n•    Vitals: Temp 97.7°F, BP 112/68, RR 18, O2 saturation not initially checked.\\n•    General: Alert, quiet, pleasant, sitting in bed.\\n•    Cardiovascular: Tachycardia, S1S2 with S3, no murmurs.\\n•    Pulmonary: Clear to auscultation, decreased breath sounds at lung bases.\\n•    Abdomen: Soft, non-tender, non-distended.\\n•    Extremities: Pitting edema, femoral line in place with sanguineous drainage on the dressing.\\n\\nPertinent Labs and Imaging:\\n•    BNP: 64,499\\n•    Digoxin level: 0.8\\n•    Creatinine: 2.1 (slightly improved from baseline)\\n•    Hematocrit: 27.5%\\n•    Albumin: 2.2\\n•    CXR: Persistent bibasilar pneumonia with bilateral effusions\\n•    Echocardiogram: EF 20%, small-moderate pericardial effusion, global hypokinesis (2023-12-28)\\nHospital Course:\\nMs. Emily Carter was admitted for further management of her multiple conditions, including HIV/AIDS, cardiomyopathy, and renal insufficiency. She initially presented with concerns about increased lower extremity edema, but her physical examination revealed no significant change. She was started on IV antibiotics and transferred to the ICU after developing severe lactic acidosis believed to be secondary to her HIV medications (Zidovudine). She required continuous venovenous hemofiltration (CVVH) for acidosis and D10 for hypoglycemia.\\nDespite treatment, the patient experienced multi-system organ failure, including liver failure, increased oliguria, pancreatitis, and hemolysis. After discussions with her family, the decision was made to discontinue dialysis and transition to hospice care.\\nFamily Meeting and Transition to Hospice:\\nThe patient's family, including her 13-year-old daughter, was informed of her prognosis. The patient expressed a desire to go to hospice, which was arranged. She was discharged on a course of antibiotics and continued medications for symptom management.\\nDischarge Medications:\\n1.   Trimethoprim-Sulfamethoxazole 80-400 mg Tablet: Take 1 tablet daily.\\n2.   Sevelamer 400 mg Tablet: Take 2 tablets three times daily.\\n3.   Digoxin 125 mcg Tablet: Take 1 tablet every other day.\\n4.   Ipratropium Bromide 0.02% Solution: Nebulize every 6 hours as needed for shortness of breath.\\n5.   Pantoprazole 40 mg Tablet: Take 1 tablet daily.\\n6.   Lasix 40 mg Tablet: Take 1 tablet daily as needed for shortness of breath or painful edema.\\n7.   Cefpodoxime 200 mg Tablet: Take 1 tablet every 12 hours for 4 days.\\n8.   Azithromycin 250 mg Tablet: Take 1 tablet daily for 4 days.\\nDischarge Disposition: The patient was transferred to Rosewood Hospice Care.\\nDischarge Diagnosis:\\n1.   HIV/AIDS\\n2.   Cardiomyopathy (EF 20%)\\n3.   New renal insufficiency (baseline creatinine mid-2s)\\n4.   Gastroesophageal reflux disease (GERD)\\n5.   Asthma\\n6.   Depression\\nDischarge Condition: Stable\\nDischarge Instructions:\\nThe patient is being transferred to hospice care, with goals of comfort and symptom management. No further labs, IVs, or fingersticks will be performed.\\nFollow-up: None required.\\nPhysician: Dr. Sarah Mitchell\\nFacility: Rosewood Hospice Care\\nDate of Completion: 2024-01-18\",\r\n   \"simplified_text\":\"\\n### Discharge Summary for Ms. Emily Carter\\n\\n**Patient Information:**\\n- **Name:** Ms. Emily Carter\\n- **Date of Birth:** February 29, 1932\\n- **Age:** 92\\n- **Sex:** Female\\n- **Admission Date:** January 4, 2024\\n- **Discharge Date:** January 19, 2024\\n- **Service:** Medicine\\n- **Attending Physician:** Dr. Sarah Mitchell\\n\\n**Reason for Hospital Stay:**\\n- Swelling in legs and difficulty taking care of herself at home.\\n\\n**Allergies:**\\n- Nevirapine\\n- Abacavir\\n- Ampicillin\\n- Tylenol\\n- Zidovudine\\n\\n**Procedures Done:**\\n- Inserted a tube in the left thigh vein\\n- Inserted a tube in the right neck vein\\n- Used a machine to help filter blood (CVVH)\\n\\n\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://care-llm.fit.fraunhofer.de:8002/v1/validate",
+							"protocol": "http",
+							"host": [
+								"care-llm",
+								"fit",
+								"fraunhofer",
+								"de"
+							],
+							"port": "8002",
+							"path": [
+								"v1",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "v3",
+			"item": [
+				{
+					"name": "summarize-diagnosis",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"task\":\"diagnosisReport\",\r\n   \"language\":\"English\",\r\n   \"validator_enabled\":true,\r\n   \"llm_name\":\"gpt-4o-2024-05-13\",\r\n   \"medical_text\":\"Diagnosis:\\nPrimary Diagnosis: Chronic Kidney Disease NOS\\nDocument Type: Discharge Summary\\nDischarge Summary:\\n•\\tAdmission Date: 2024-01-04\\n•\\tDischarge Date: 2024-01-19\\n•\\tDate of Birth: 1932-02-29\\n•\\tSex: Female\\n•\\tService: Medicine\\nAllergies:\\n•\\tNevirapine\\n•\\tAbacavir\\n•\\tAmpicillin\\n•\\tTylenol\\n•\\tZidovudine\\nAttending Physician:  Dr. Sarah Mitchell\\nChief Complaint: Increased lower extremity swelling and concerns about self-care at home.\\nMajor Surgical or Invasive Procedures:\\n•\\tLeft femoral central line\\n•\\tRight internal jugular central line\\n•\\tContinuous venovenous hemofiltration (CVVH)\\nHistory of Present Illness:\\nThe patient is has HIV/AIDS (CD4 count of 5 as of 2023-08-23, unknown viral load) and cardiomyopathy (ejection fraction [EF] 20%) who was recently hospitalized for bibasilar pneumonia. She completed a two-week course of antibiotics (Levofloxacin and Flagyl). She presented with complaints of persistent leg swelling and weakness for two weeks. She denied shortness of breath, eating salty foods, and fever but reported consuming canned chicken noodle soup. She had received partial prescriptions after her previous discharge but did not know the names or doses of her HIV medications, identifying only Bactrim as her HIV medicine.\\nIn the Emergency Department (ED), the patient received IV Lasix, and a femoral line was placed due to difficult venous access.\\n\\nPast Medical History:\\n•\\tHIV/AIDS: History of PCP x 2, MAC, cervical dysplasia, HSV anal ulcers. Last CD4 count of 5 on 2023-08-19.\\n•\\tCardiomyopathy: EF 20% as of 2023-12-28.\\n•\\tRenal Insufficiency: New renal insufficiency since 2023-11-18 with baseline creatinine in the mid-2s.\\n•\\tDepression\\n•\\tAsthma\\n\\nSocial History:\\n•\\tDivorced, lives with her 13-year-old daughter.\\n•\\tAmbulates with a walker.\\n•\\tDenies tobacco, alcohol, or drug use.\\nFamily History:\\n•\\tCoronary Artery Disease: Mother died at age 57 from myocardial infarction.\\n\\nPhysical Examination on Admission:\\n•\\tVitals: Temp 97.7°F, BP 112/68, RR 18, O2 saturation not initially checked.\\n•\\tGeneral: Alert, quiet, pleasant, sitting in bed.\\n•\\tCardiovascular: Tachycardia, S1S2 with S3, no murmurs.\\n•\\tPulmonary: Clear to auscultation, decreased breath sounds at lung bases.\\n•\\tAbdomen: Soft, non-tender, non-distended.\\n•\\tExtremities: Pitting edema, femoral line in place with sanguineous drainage on the dressing.\\n\\nPertinent Labs and Imaging:\\n•\\tBNP: 64,499\\n•\\tDigoxin level: 0.8\\n•\\tCreatinine: 2.1 (slightly improved from baseline)\\n•\\tHematocrit: 27.5%\\n•\\tAlbumin: 2.2\\n•\\tCXR: Persistent bibasilar pneumonia with bilateral effusions\\n•\\tEchocardiogram: EF 20%, small-moderate pericardial effusion, global hypokinesis (2023-12-28)\\nHospital Course:\\nMs. Emily Carter was admitted for further management of her multiple conditions, including HIV/AIDS, cardiomyopathy, and renal insufficiency. She initially presented with concerns about increased lower extremity edema, but her physical examination revealed no significant change. She was started on IV antibiotics and transferred to the ICU after developing severe lactic acidosis believed to be secondary to her HIV medications (Zidovudine). She required continuous venovenous hemofiltration (CVVH) for acidosis and D10 for hypoglycemia.\\nDespite treatment, the patient experienced multi-system organ failure, including liver failure, increased oliguria, pancreatitis, and hemolysis. After discussions with her family, the decision was made to discontinue dialysis and transition to hospice care.\\nFamily Meeting and Transition to Hospice:\\nThe patient's family, including her 13-year-old daughter, was informed of her prognosis. The patient expressed a desire to go to hospice, which was arranged. She was discharged on a course of antibiotics and continued medications for symptom management.\\nDischarge Medications:\\n1.\\tTrimethoprim-Sulfamethoxazole 80-400 mg Tablet: Take 1 tablet daily.\\n2.\\tSevelamer 400 mg Tablet: Take 2 tablets three times daily.\\n3.\\tDigoxin 125 mcg Tablet: Take 1 tablet every other day.\\n4.\\tIpratropium Bromide 0.02% Solution: Nebulize every 6 hours as needed for shortness of breath.\\n5.\\tPantoprazole 40 mg Tablet: Take 1 tablet daily.\\n6.\\tLasix 40 mg Tablet: Take 1 tablet daily as needed for shortness of breath or painful edema.\\n7.\\tCefpodoxime 200 mg Tablet: Take 1 tablet every 12 hours for 4 days.\\n8.\\tAzithromycin 250 mg Tablet: Take 1 tablet daily for 4 days.\\nDischarge Disposition: The patient was transferred to Rosewood Hospice Care.\\nDischarge Diagnosis:\\n1.\\tHIV/AIDS\\n2.\\tCardiomyopathy (EF 20%)\\n3.\\tNew renal insufficiency (baseline creatinine mid-2s)\\n4.\\tGastroesophageal reflux disease (GERD)\\n5.\\tAsthma\\n6.\\tDepression\\nDischarge Condition: Stable\\nDischarge Instructions:\\nThe patient is being transferred to hospice care, with goals of comfort and symptom management. No further labs, IVs, or fingersticks will be performed.\\nFollow-up: None required.\\nPhysician: Dr. Sarah Mitchell\\nFacility: Rosewood Hospice Care\\nDate of Completion: 2024-01-18\",\r\n   \"user_profile\":{\r\n      \"gender\":\"female\",\r\n      \"birthday\":\"1932-02-29\",\r\n      \"martialStatus\":\"single\",\r\n      \"religion\":\"Protestant\",\r\n      \"allergies\":[\r\n         \"Nevirapine\",\r\n         \"Abacavir\",\r\n         \"Ampicillin\",\r\n         \"Tylenol\",\r\n         \"Zidovudine\"\r\n      ],\r\n      \"educationalBackground\":\"school\",\r\n      \"professionalBackground\":\"technical\",\r\n      \"languagePreferences\":[\r\n         \"avoidAbstractTerms\"\r\n      ]\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://care-llm.fit.fraunhofer.de/v3/summarize",
+							"protocol": "http",
+							"host": [
+								"care-llm",
+								"fit",
+								"fraunhofer",
+								"de"
+							],
+							"path": [
+								"v3",
+								"summarize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "summarize-disease",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"task\":\"diseaseInformation\",\r\n   \"language\":\"German\",\r\n   \"validator_enabled\":true,\r\n   \"llm_name\":\"gpt-4o-2024-05-13\",\r\n   \"medical_text\":\"Chronic kidney disease (CKD), also known as chronic renal disease, is progressive loss in kidney function over a period of months or years. The symptoms of worsening kidney function are not specific, and might include feeling generally unwell and experiencing a reduced appetite. Often, chronic kidney disease is diagnosed as a result of screening of people known to be at risk of kidney problems, such as those with high blood pressure or diabetes and those with a blood relative with CKD. This disease may also be identified when it leads to one of its recognized complications, such as cardiovascular disease, anemia, pericarditis or renal osteodystrophy (the latter included in the novel term CKD-MBD). CKD is a long-term form of kidney disease; thus, it is differentiated from acute kidney disease (acute kidney injury) in that the reduction in kidney function must be present for over 3 months. CKD is an internationally recognized public health problem affecting 5–10% of the world population.\",\r\n   \"user_profile\":{\r\n      \"gender\":\"male\",\r\n      \"birthday\":\"1994-10-24\",\r\n      \"martialStatus\":\"single\",\r\n      \"religion\":\"Protestant\",\r\n      \"allergies\":[\r\n         \"Pollen\"\r\n      ],\r\n      \"educationalBackground\":\"school\",\r\n      \"professionalBackground\":\"technical\",\r\n      \"languagePreferences\":[\r\n         \"avoidAbstractTerms\"\r\n      ]\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://care-llm.fit.fraunhofer.de/v3/summarize",
+							"protocol": "http",
+							"host": [
+								"care-llm",
+								"fit",
+								"fraunhofer",
+								"de"
+							],
+							"path": [
+								"v3",
+								"summarize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "initiate-chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"chat_id\":\"v3-test-1\",\r\n   \"llm_name\":\"gpt-4o-2024-05-13\",\r\n   \"user_question\":\"Based on my medical condition, justify the medication prescribed\",\r\n   \"medical_text\":\"Diagnosis:\\nPrimary Diagnosis: Chronic Kidney Disease NOS\\nDocument Type: Discharge Summary\\nDischarge Summary:\\n•\\tAdmission Date: 2024-01-04\\n•\\tDischarge Date: 2024-01-19\\n•\\tDate of Birth: 1932-02-29\\n•\\tSex: Female\\n•\\tService: Medicine\\nAllergies:\\n•\\tNevirapine\\n•\\tAbacavir\\n•\\tAmpicillin\\n•\\tTylenol\\n•\\tZidovudine\\nAttending Physician:  Dr. Sarah Mitchell\\nChief Complaint: Increased lower extremity swelling and concerns about self-care at home.\\nMajor Surgical or Invasive Procedures:\\n•\\tLeft femoral central line\\n•\\tRight internal jugular central line\\n•\\tContinuous venovenous hemofiltration (CVVH)\\nHistory of Present Illness:\\nThe patient is has HIV/AIDS (CD4 count of 5 as of 2023-08-23, unknown viral load) and cardiomyopathy (ejection fraction [EF] 20%) who was recently hospitalized for bibasilar pneumonia. She completed a two-week course of antibiotics (Levofloxacin and Flagyl). She presented with complaints of persistent leg swelling and weakness for two weeks. She denied shortness of breath, eating salty foods, and fever but reported consuming canned chicken noodle soup. She had received partial prescriptions after her previous discharge but did not know the names or doses of her HIV medications, identifying only Bactrim as her HIV medicine.\\nIn the Emergency Department (ED), the patient received IV Lasix, and a femoral line was placed due to difficult venous access.\\n\\nPast Medical History:\\n•\\tHIV/AIDS: History of PCP x 2, MAC, cervical dysplasia, HSV anal ulcers. Last CD4 count of 5 on 2023-08-19.\\n•\\tCardiomyopathy: EF 20% as of 2023-12-28.\\n•\\tRenal Insufficiency: New renal insufficiency since 2023-11-18 with baseline creatinine in the mid-2s.\\n•\\tDepression\\n•\\tAsthma\\n\\nSocial History:\\n•\\tDivorced, lives with her 13-year-old daughter.\\n•\\tAmbulates with a walker.\\n•\\tDenies tobacco, alcohol, or drug use.\\nFamily History:\\n•\\tCoronary Artery Disease: Mother died at age 57 from myocardial infarction.\\n\\nPhysical Examination on Admission:\\n•\\tVitals: Temp 97.7°F, BP 112/68, RR 18, O2 saturation not initially checked.\\n•\\tGeneral: Alert, quiet, pleasant, sitting in bed.\\n•\\tCardiovascular: Tachycardia, S1S2 with S3, no murmurs.\\n•\\tPulmonary: Clear to auscultation, decreased breath sounds at lung bases.\\n•\\tAbdomen: Soft, non-tender, non-distended.\\n•\\tExtremities: Pitting edema, femoral line in place with sanguineous drainage on the dressing.\\n\\nPertinent Labs and Imaging:\\n•\\tBNP: 64,499\\n•\\tDigoxin level: 0.8\\n•\\tCreatinine: 2.1 (slightly improved from baseline)\\n•\\tHematocrit: 27.5%\\n•\\tAlbumin: 2.2\\n•\\tCXR: Persistent bibasilar pneumonia with bilateral effusions\\n•\\tEchocardiogram: EF 20%, small-moderate pericardial effusion, global hypokinesis (2023-12-28)\\nHospital Course:\\nMs. Emily Carter was admitted for further management of her multiple conditions, including HIV/AIDS, cardiomyopathy, and renal insufficiency. She initially presented with concerns about increased lower extremity edema, but her physical examination revealed no significant change. She was started on IV antibiotics and transferred to the ICU after developing severe lactic acidosis believed to be secondary to her HIV medications (Zidovudine). She required continuous venovenous hemofiltration (CVVH) for acidosis and D10 for hypoglycemia.\\nDespite treatment, the patient experienced multi-system organ failure, including liver failure, increased oliguria, pancreatitis, and hemolysis. After discussions with her family, the decision was made to discontinue dialysis and transition to hospice care.\\nFamily Meeting and Transition to Hospice:\\nThe patient's family, including her 13-year-old daughter, was informed of her prognosis. The patient expressed a desire to go to hospice, which was arranged. She was discharged on a course of antibiotics and continued medications for symptom management.\\nDischarge Medications:\\n1.\\tTrimethoprim-Sulfamethoxazole 80-400 mg Tablet: Take 1 tablet daily.\\n2.\\tSevelamer 400 mg Tablet: Take 2 tablets three times daily.\\n3.\\tDigoxin 125 mcg Tablet: Take 1 tablet every other day.\\n4.\\tIpratropium Bromide 0.02% Solution: Nebulize every 6 hours as needed for shortness of breath.\\n5.\\tPantoprazole 40 mg Tablet: Take 1 tablet daily.\\n6.\\tLasix 40 mg Tablet: Take 1 tablet daily as needed for shortness of breath or painful edema.\\n7.\\tCefpodoxime 200 mg Tablet: Take 1 tablet every 12 hours for 4 days.\\n8.\\tAzithromycin 250 mg Tablet: Take 1 tablet daily for 4 days.\\nDischarge Disposition: The patient was transferred to Rosewood Hospice Care.\\nDischarge Diagnosis:\\n1.\\tHIV/AIDS\\n2.\\tCardiomyopathy (EF 20%)\\n3.\\tNew renal insufficiency (baseline creatinine mid-2s)\\n4.\\tGastroesophageal reflux disease (GERD)\\n5.\\tAsthma\\n6.\\tDepression\\nDischarge Condition: Stable\\nDischarge Instructions:\\nThe patient is being transferred to hospice care, with goals of comfort and symptom management. No further labs, IVs, or fingersticks will be performed.\\nFollow-up: None required.\\nPhysician: Dr. Sarah Mitchell\\nFacility: Rosewood Hospice Care\\nDate of Completion: 2024-01-18\",\r\n   \"user_profile\":{\r\n      \"gender\":\"female\",\r\n      \"birthday\":\"1932-02-29\",\r\n      \"martialStatus\":\"single\",\r\n      \"religion\":\"Protestant\",\r\n      \"allergies\":[\r\n         \"Nevirapine\",\r\n         \"Abacavir\",\r\n         \"Ampicillin\",\r\n         \"Tylenol\",\r\n         \"Zidovudine\"\r\n      ],\r\n      \"educationalBackground\":\"school\",\r\n      \"professionalBackground\":\"technical\",\r\n      \"languagePreferences\":[\r\n         \"avoidAbstractTerms\"\r\n      ]\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://care-llm.fit.fraunhofer.de/v3/converse",
+							"protocol": "http",
+							"host": [
+								"care-llm",
+								"fit",
+								"fraunhofer",
+								"de"
+							],
+							"path": [
+								"v3",
+								"converse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resume-chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"chat_id\":\"v3-test-1\",\r\n   \"llm_name\":\"gpt-4o-2024-05-13\", \r\n   \"user_question\":\"What was my last question?\",\r\n   \"medical_text\":\"Diagnosis:\\nPrimary Diagnosis: Chronic Kidney Disease NOS\\nDocument Type: Discharge Summary\\nDischarge Summary:\\n•\\tAdmission Date: 2024-01-04\\n•\\tDischarge Date: 2024-01-19\\n•\\tDate of Birth: 1932-02-29\\n•\\tSex: Female\\n•\\tService: Medicine\\nAllergies:\\n•\\tNevirapine\\n•\\tAbacavir\\n•\\tAmpicillin\\n•\\tTylenol\\n•\\tZidovudine\\nAttending Physician:  Dr. Sarah Mitchell\\nChief Complaint: Increased lower extremity swelling and concerns about self-care at home.\\nMajor Surgical or Invasive Procedures:\\n•\\tLeft femoral central line\\n•\\tRight internal jugular central line\\n•\\tContinuous venovenous hemofiltration (CVVH)\\nHistory of Present Illness:\\nThe patient is has HIV/AIDS (CD4 count of 5 as of 2023-08-23, unknown viral load) and cardiomyopathy (ejection fraction [EF] 20%) who was recently hospitalized for bibasilar pneumonia. She completed a two-week course of antibiotics (Levofloxacin and Flagyl). She presented with complaints of persistent leg swelling and weakness for two weeks. She denied shortness of breath, eating salty foods, and fever but reported consuming canned chicken noodle soup. She had received partial prescriptions after her previous discharge but did not know the names or doses of her HIV medications, identifying only Bactrim as her HIV medicine.\\nIn the Emergency Department (ED), the patient received IV Lasix, and a femoral line was placed due to difficult venous access.\\n\\nPast Medical History:\\n•\\tHIV/AIDS: History of PCP x 2, MAC, cervical dysplasia, HSV anal ulcers. Last CD4 count of 5 on 2023-08-19.\\n•\\tCardiomyopathy: EF 20% as of 2023-12-28.\\n•\\tRenal Insufficiency: New renal insufficiency since 2023-11-18 with baseline creatinine in the mid-2s.\\n•\\tDepression\\n•\\tAsthma\\n\\nSocial History:\\n•\\tDivorced, lives with her 13-year-old daughter.\\n•\\tAmbulates with a walker.\\n•\\tDenies tobacco, alcohol, or drug use.\\nFamily History:\\n•\\tCoronary Artery Disease: Mother died at age 57 from myocardial infarction.\\n\\nPhysical Examination on Admission:\\n•\\tVitals: Temp 97.7°F, BP 112/68, RR 18, O2 saturation not initially checked.\\n•\\tGeneral: Alert, quiet, pleasant, sitting in bed.\\n•\\tCardiovascular: Tachycardia, S1S2 with S3, no murmurs.\\n•\\tPulmonary: Clear to auscultation, decreased breath sounds at lung bases.\\n•\\tAbdomen: Soft, non-tender, non-distended.\\n•\\tExtremities: Pitting edema, femoral line in place with sanguineous drainage on the dressing.\\n\\nPertinent Labs and Imaging:\\n•\\tBNP: 64,499\\n•\\tDigoxin level: 0.8\\n•\\tCreatinine: 2.1 (slightly improved from baseline)\\n•\\tHematocrit: 27.5%\\n•\\tAlbumin: 2.2\\n•\\tCXR: Persistent bibasilar pneumonia with bilateral effusions\\n•\\tEchocardiogram: EF 20%, small-moderate pericardial effusion, global hypokinesis (2023-12-28)\\nHospital Course:\\nMs. Emily Carter was admitted for further management of her multiple conditions, including HIV/AIDS, cardiomyopathy, and renal insufficiency. She initially presented with concerns about increased lower extremity edema, but her physical examination revealed no significant change. She was started on IV antibiotics and transferred to the ICU after developing severe lactic acidosis believed to be secondary to her HIV medications (Zidovudine). She required continuous venovenous hemofiltration (CVVH) for acidosis and D10 for hypoglycemia.\\nDespite treatment, the patient experienced multi-system organ failure, including liver failure, increased oliguria, pancreatitis, and hemolysis. After discussions with her family, the decision was made to discontinue dialysis and transition to hospice care.\\nFamily Meeting and Transition to Hospice:\\nThe patient's family, including her 13-year-old daughter, was informed of her prognosis. The patient expressed a desire to go to hospice, which was arranged. She was discharged on a course of antibiotics and continued medications for symptom management.\\nDischarge Medications:\\n1.\\tTrimethoprim-Sulfamethoxazole 80-400 mg Tablet: Take 1 tablet daily.\\n2.\\tSevelamer 400 mg Tablet: Take 2 tablets three times daily.\\n3.\\tDigoxin 125 mcg Tablet: Take 1 tablet every other day.\\n4.\\tIpratropium Bromide 0.02% Solution: Nebulize every 6 hours as needed for shortness of breath.\\n5.\\tPantoprazole 40 mg Tablet: Take 1 tablet daily.\\n6.\\tLasix 40 mg Tablet: Take 1 tablet daily as needed for shortness of breath or painful edema.\\n7.\\tCefpodoxime 200 mg Tablet: Take 1 tablet every 12 hours for 4 days.\\n8.\\tAzithromycin 250 mg Tablet: Take 1 tablet daily for 4 days.\\nDischarge Disposition: The patient was transferred to Rosewood Hospice Care.\\nDischarge Diagnosis:\\n1.\\tHIV/AIDS\\n2.\\tCardiomyopathy (EF 20%)\\n3.\\tNew renal insufficiency (baseline creatinine mid-2s)\\n4.\\tGastroesophageal reflux disease (GERD)\\n5.\\tAsthma\\n6.\\tDepression\\nDischarge Condition: Stable\\nDischarge Instructions:\\nThe patient is being transferred to hospice care, with goals of comfort and symptom management. No further labs, IVs, or fingersticks will be performed.\\nFollow-up: None required.\\nPhysician: Dr. Sarah Mitchell\\nFacility: Rosewood Hospice Care\\nDate of Completion: 2024-01-18\",\r\n   \"user_profile\":{\r\n      \"gender\":\"female\",\r\n      \"birthday\":\"1932-02-29\",\r\n      \"martialStatus\":\"single\",\r\n      \"religion\":\"Protestant\",\r\n      \"allergies\":[\r\n         \"Nevirapine\",\r\n         \"Abacavir\",\r\n         \"Ampicillin\",\r\n         \"Tylenol\",\r\n         \"Zidovudine\"\r\n      ],\r\n      \"educationalBackground\":\"school\",\r\n      \"professionalBackground\":\"technical\",\r\n      \"languagePreferences\":[\r\n         \"avoidAbstractTerms\"\r\n      ]\r\n   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://care-llm.fit.fraunhofer.de/v3/converse",
+							"protocol": "http",
+							"host": [
+								"care-llm",
+								"fit",
+								"fraunhofer",
+								"de"
+							],
+							"path": [
+								"v3",
+								"converse"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

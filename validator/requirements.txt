@@ -1,0 +1,8 @@
+transformers
+torch
+sentence-transformers
+numpy==1.26.4
+en_ner_bc5cdr_md @ https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.1/en_ner_bc5cdr_md-0.5.1.tar.gz
+fastapi==0.115.0
+uvicorn==0.30.6
+nltk==3.8.1
